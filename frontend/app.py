@@ -26,6 +26,7 @@ BACKEND_URL = os.getenv(
     "https://api.knoxxi.net/knoxxi-uriscan-inference"
 )
 
+
 # Initialize API client
 @st.cache_resource
 def get_api_client():

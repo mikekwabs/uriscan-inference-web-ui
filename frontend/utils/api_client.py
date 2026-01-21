@@ -7,6 +7,12 @@ from typing import Dict, List, Optional, Any
 from datetime import datetime
 
 
+HEADERS = {
+    "Accept": "application/json",
+    "Content-Type": "application/json",
+    "User-Agent": "PostmanRuntime/7.36.0",
+}
+
 class InferenceAPIClient:
     """Client for Uriscan Inference API"""
     
@@ -28,7 +34,11 @@ class InferenceAPIClient:
             Health status dictionary
         """
         try:
-            response = requests.get(f"{self.api_base}/health", timeout=5)
+            response = requests.get(
+                f"{self.api_base}/health", 
+                headers=HEADERS,
+                timeout=5
+            )
             response.raise_for_status()
             return response.json()
         except Exception as e:
@@ -50,6 +60,7 @@ class InferenceAPIClient:
         try:
             response = requests.get(
                 f"{self.api_base}/submissions/recent",
+                headers=HEADERS,
                 params={"limit": limit},
                 timeout=10
             )
@@ -79,6 +90,7 @@ class InferenceAPIClient:
         try:
             response = requests.post(
                 f"{self.api_base}/inference/{submission_id}",
+                headers=HEADERS,
                 timeout=60
             )
             response.raise_for_status()
@@ -134,6 +146,7 @@ class InferenceAPIClient:
             
             response = requests.get(
                 f"{self.api_base}/tracking/submissions",
+                headers=HEADERS,
                 params=params,
                 timeout=10
             )
@@ -155,6 +168,7 @@ class InferenceAPIClient:
         try:
             response = requests.get(
                 f"{self.api_base}/tracking/submissions/{submission_id}",
+                headers=HEADERS,
                 timeout=10
             )
             response.raise_for_status()

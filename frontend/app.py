@@ -23,7 +23,7 @@ st.set_page_config(
 # API Configuration
 BACKEND_URL = os.getenv(
     "BACKEND_API_URL",
-    "http://localhost:8000/knoxxi-uriscan-inference"
+    "https://api.knoxxi.net/knoxxi-uriscan-inference"
 )
 
 # Initialize API client

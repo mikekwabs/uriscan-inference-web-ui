@@ -178,14 +178,14 @@ def render_parameter_breakdown(parameters: List[Dict[str, Any]]):
         table_data.append({
             'Agreement': get_agreement_badge(agreement),
             'Parameter': param.get('parameter_name', 'N/A'),
-            'Model Type': param.get('model_type', 'N/A').upper(),
+            'Model Type': param.get('model_type', 'N/A'),
             'Prediction': param.get('prediction', 'N/A'),
             'Ground Truth': param.get('ground_truth_raw', 'N/A'),
             'GT Binary': param.get('ground_truth_binary', 'N/A'),
             'Agreement %': agreement_pct,
             'Probability': param.get('probability', 0),
             'Threshold': param.get('threshold', 0),
-            'Confidence': param.get('confidence', 'N/A')
+            # 'Confidence': param.get('confidence', 'N/A')
         })
     
     # Create DataFrame
@@ -260,6 +260,7 @@ def render_disagreements_only(parameters: List[Dict[str, Any]]):
                 st.markdown("**Ground Truth:**")
                 st.info(f"{param.get('ground_truth_binary', 'N/A')} (raw: {param.get('ground_truth_raw', 'N/A')})")
             
-            st.caption(f"Model: {param.get('model_type', 'N/A').upper()} | "
-                      f"Threshold: {param.get('threshold', 0):.2f} | "
-                      f"Confidence: {param.get('confidence', 'N/A')}")
+            # st.caption(f"Model: {param.get('model_type', 'N/A').upper()} | "
+            #           f"Threshold: {param.get('threshold', 0):.2f} | "
+            #           f"Confidence: {param.get('confidence', 'N/A')}"
+            #           )

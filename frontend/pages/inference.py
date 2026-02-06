@@ -190,7 +190,7 @@ def show_inference_page(api_client: InferenceAPIClient):
                         'Ground Truth': param.get('ground_truth_raw', 'N/A'),
                         'Agreement': get_agreement_badge(param.get('agreement', False)),
                         'Probability': f"{param.get('probability', 0):.3f}",
-                        'Confidence': param.get('confidence', 'N/A')
+                        # 'Confidence': param.get('confidence', 'N/A')
                     })
                 else:
                     params_data.append({
@@ -200,7 +200,7 @@ def show_inference_page(api_client: InferenceAPIClient):
                         'Ground Truth': '-',
                         'Agreement': '-',
                         'Probability': '-',
-                        'Confidence': '-'
+                        # 'Confidence': '-'
                     })
             
             # Display as dataframe

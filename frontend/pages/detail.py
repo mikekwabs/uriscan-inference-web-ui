@@ -137,7 +137,7 @@ def show_detail_page(api_client: InferenceAPIClient):
                         'Agreement': param.get('agreement'),
                         'Probability': param.get('probability'),
                         'Threshold': param.get('threshold'),
-                        'Confidence': param.get('confidence')
+                        # 'Confidence': param.get('confidence')
                     })
                 
                 df = pd.DataFrame(export_data)
